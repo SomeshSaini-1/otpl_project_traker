@@ -8,5 +8,5 @@ const Project = new mongoose.Schema({
     "assignto":String,
 },{timestamps :true})
 
-module.exports = mongoose.module("Project",Project);
+module.exports = mongoose.model("Project",Project);
 
