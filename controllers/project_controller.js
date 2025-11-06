@@ -19,7 +19,7 @@ exports.Get_Project = async (req, res) => {
     try {
         const { project_name } = req.body;
         let project;
-        if (devicename === "all") {
+        if (project_name === "all") {
             project = await Project.find();
         } else {
             project = await Project.find({ project_name });
