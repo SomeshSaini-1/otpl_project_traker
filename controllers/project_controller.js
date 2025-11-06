@@ -2,9 +2,9 @@ const Project = require("../models/project_model");
 
 exports.Add_project = async (req, res) => {
     try {
-        const { project_name, department, assignto } = req.body;
+        const { project_name, department, assignto, project_stages } = req.body;
 
-        const project = new Project({ project_name, department, assignto });
+        const project = new Project({ project_name, department, assignto , project_stages});
         await project.save();
 
         res.status(201).json({ message: "Project Created" });
@@ -46,10 +46,10 @@ exports.Delete_project = async (req, res) => {
 
 exports.update_Project = async (req, res) => {
     try {
-        const { project_name, department, assignto, id } = req.body;
+        const { project_name, department,project_stages, assignto, id } = req.body;
         const pro = await Project.updateOne(
             { _id: id },
-            { $set: { project_name, department, assignto } }
+            { $set: { project_name, department, project_stages, assignto } }
         );
         res.status(200).json({ message: "Project updated successfully", result: updateResult });
     } catch (error) {
