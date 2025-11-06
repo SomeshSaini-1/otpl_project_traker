@@ -28,7 +28,7 @@ exports.Get_Project = async (req, res) => {
         res.status(200).json(project);
     } catch (error) {
         console.error("server error : ", error)
-        res.status(500).json({ message: "internal server error.", error: error.message });
+        res.status(500).json({ message: "Internal Server Error.", error: error.message });
     }
 }
 
