@@ -46,10 +46,10 @@ exports.Delete_project = async (req, res) => {
 
 exports.update_Project = async (req, res) => {
     try {
-        const { project_name, department,project_stages, assignto, id } = req.body;
+        const { project_name, department,project_stages, status, assignto, id } = req.body;
         const pro = await Project.updateOne(
             { _id: id },
-            { $set: { project_name, department, project_stages, assignto } }
+            { $set: { project_name, department, project_stages, status, assignto } }
         );
         res.status(200).json({ message: "Project updated successfully", result: updateResult });
     } catch (error) {
