@@ -51,7 +51,7 @@ exports.update_Project = async (req, res) => {
             { _id: id },
             { $set: { project_name, department, project_stages, status, assignto } }
         );
-        res.status(200).json({ message: "Project updated successfully", result: updateResult });
+        res.status(200).json({ message: "Project updated successfully", result: pro });
     } catch (error) {
         console.error("Error updating :", error.message);
         res.status(500).json({ error: error.message });
