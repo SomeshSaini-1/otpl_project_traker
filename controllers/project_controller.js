@@ -2,9 +2,9 @@ const Project = require("../models/project_model");
 
 exports.Add_project = async (req, res) => {
     try {
-        const { project_name, department, assignto, project_stages } = req.body;
+        const { project_name, department, assignto, project_stages, status } = req.body;
 
-        const project = new Project({ project_name, department, assignto , project_stages});
+        const project = new Project({ project_name, department, assignto, project_stages, status});
         await project.save();
 
         res.status(201).json({ message: "Project Created" });
